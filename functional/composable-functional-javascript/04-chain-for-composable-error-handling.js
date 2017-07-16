@@ -1,17 +1,18 @@
-const { Left, Right } = require('./functional')
+const { Left, Right, tryCatch } = require('./functional')
 const { logx } = require('./utils.js')
 const fs = require('fs')
 
-const getPort = (fileName) => {
-  try {
-    const str = fs.readFileSync(fileName)
-    const config = JSON.parse(str)
-    return config.port
-  } catch (e) {
-    return 3000
-  }
-}
+const getPort = (fileName) =>
+  tryCatch(() => fs.readFileSync(fileName))
+  .chain(str => tryCatch(() => JSON.parse(str)))
+  .map(config => config.port)
+  .fold(e => 1000,
+        x => x)
 
 logx('getPort() with existent file',
   getPort('config.json')
+)
+
+logx('getPort() with nonexistent file',
+  getPort('unknown.json')
 )
