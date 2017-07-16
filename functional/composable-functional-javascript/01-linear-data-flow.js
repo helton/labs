@@ -1,5 +1,9 @@
+const Box = x => ({
+  map: f => Box(f(x))
+})
+
 const nextCharForNumberString = str =>
-  [str]
+  Box(str)
   .map(s => s.trim())
   .map(s => parseInt(s))
   .map(i => i + 1)
