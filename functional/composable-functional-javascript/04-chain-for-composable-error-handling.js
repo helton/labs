@@ -2,9 +2,9 @@ const { Left, Right } = require('./functional')
 const { logx } = require('./utils.js')
 const fs = require('fs')
 
-const getPort = () => {
+const getPort = (fileName) => {
   try {
-    const str = fs.readFileSync('config.json')
+    const str = fs.readFileSync(fileName)
     const config = JSON.parse(str)
     return config.port
   } catch (e) {
@@ -12,6 +12,6 @@ const getPort = () => {
   }
 }
 
-console.log(
-  getPort()
+logx('getPort() with existent file',
+  getPort('config.json')
 )
