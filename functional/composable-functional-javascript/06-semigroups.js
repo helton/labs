@@ -24,7 +24,11 @@ const All = x => ({
   inspect: () => `All(${x})`
 })
 
+<<<<<<< HEAD
 logx("All Semigroup - example 2",
+=======
+logx("All Semigroup - example 1",
+>>>>>>> Create types with Semigroups
   All(true).concat(All(false))
 )
 
@@ -34,10 +38,10 @@ logx("All Semigroup - example 2",
 
 const First = x => ({
   x,
-  concat: _ => First(x)
+  concat: _ => First(x),
   inspect: () => `First(${x})`
 })
 
 logx("First Semigroup",
-  First('blah').concat('foo').concat('bar')
+  First('blah').concat('foo').concat('bar').concat(First('second'))
 )
