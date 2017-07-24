@@ -7,12 +7,12 @@ const nonOptimized = (arr) => {
   }
   return count
 }
- 
+
 const optimized = (arr) => arr.length
 
 let randomArray = []
 for (let i = 0; i < MAX; i++) {
-  randomArray.push(Math.random()) 
+  randomArray.push(Math.random())
 }
 
 // console.log('randomArray', randomArray)
@@ -21,12 +21,12 @@ for (let i = 0; i < MAX; i++) {
 
 const Benchmark = require('benchmark')
 
-let suite = new Benchmark.Suite
+let suite = new Benchmark.Suite()
 suite
   .add('nonOptimized', () => nonOptimized(randomArray))
   .add('optimized', () => optimized(randomArray))
-   .on('cycle', event => console.log(event.target))
-  .on('complete', function() {
+  .on('cycle', event => console.log(event.target))
+  .on('complete', function () {
     console.log('Fastest', this.filter('fastest'))
   })
   .run()

@@ -9,12 +9,12 @@ let $ = cheerio.load(`
 
 $('ul').append('<li>3</li>')
 
-//ES5
-$('li').each(function() {
+// ES5
+$('li').each(function () {
   console.log($(this).html())
 })
 
-//ES6
+// ES6
 $('li').each((i, el) => {
   console.log($(el).html())
 })
