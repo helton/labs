@@ -1,0 +1,12 @@
+{
+  "name": "fetch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^1.7.1"
+  },
+  "scripts": {
+    "go": "standard | snazzy ; node $npm_package_main"
+  }
+}
