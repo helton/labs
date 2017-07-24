@@ -1,0 +1,14 @@
+{
+  "name": "standard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "standard": "standard --verbose | snazzy",
+    "standard-fix": "standard --fix --verbose | snazzy"
+  },
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  }
+}
