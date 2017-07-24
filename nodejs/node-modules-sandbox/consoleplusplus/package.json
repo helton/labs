@@ -1,0 +1,9 @@
+{
+  "name": "consoleplusplus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "consoleplusplus": "^1.4.1"
+  }
+}
