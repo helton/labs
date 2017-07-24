@@ -1,0 +1,13 @@
+{
+  "name": "chalkjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "go": "node $npm_package_main"
+  },
+  "dependencies": {
+    "ansi-styles": "^3.2.0",
+    "chalk": "^2.0.1"
+  }
+}
