@@ -1,0 +1,9 @@
+{
+  "name": "rimraf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^2.6.1"
+  }
+}
