@@ -1,0 +1,18 @@
+{
+  "name": "lowdb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "lowdb": "^0.16.2"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  },
+  "scripts": {
+    "start": "standard | snazzy ; node $npm_package_main",
+    "test": "ava"
+  }
+}
