@@ -1,0 +1,15 @@
+{
+  "name": "webpack-academy-one",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Helton Carlos de Souza",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2",
+    "webpack": "^3.3.0"
+  }
+}
