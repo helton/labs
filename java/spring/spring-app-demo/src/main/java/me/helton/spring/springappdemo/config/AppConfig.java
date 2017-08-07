@@ -28,7 +28,8 @@ public class AppConfig {
         return NumberFormat.getCurrencyInstance();
     }
 
-    @Bean
+    @Bean(initMethod = "startGame", destroyMethod = "endGame")
+    @Scope("prototype")
     public Game game() {
         Game game = new BaseballGame(teams.get(0), teams.get(1));
         game.setDataSource(dataSource);

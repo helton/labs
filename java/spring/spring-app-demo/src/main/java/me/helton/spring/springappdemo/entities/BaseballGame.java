@@ -17,6 +17,14 @@ public class BaseballGame implements Game {
     private Team awayTeam;
     private DataSource dataSource;
 
+    public void startGame() {
+        System.out.println("Playing Nation Anthem");
+    }
+
+    public void endGame() {
+        System.out.println("Sending highlights to MBL");
+    }
+
     public String playGame() {
         return Math.random() < 0.5 ? getHomeTeam().getName() : getAwayTeam().getName();
     }
