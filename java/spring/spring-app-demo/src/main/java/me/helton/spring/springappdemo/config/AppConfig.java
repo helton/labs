@@ -1,34 +1,32 @@
 package me.helton.spring.springappdemo.config;
 
 import me.helton.spring.springappdemo.entities.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import javax.sql.DataSource;
 
 @Configuration
-@Import(InfrastructureConfig.class)
+@ComponentScan(basePackages = "me.helton.spring.springappdemo")
 public class AppConfig {
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired @Qualifier("redSox")
+    private Team home;
+
+    @Autowired @Qualifier("cubs")
+    private Team away;
 
     @Bean
-    public Game game(DataSource dataSource) {
-        Game game = new BaseballGame(redSox(), cubs());
-        // <dataSource> is a parameter in a Bean config, so it'll be injected
-        // using the beans registered here (autowired).
-        // Since we're importing Infrastructure config class, it'll be found there
+    public Game game() {
+        Game game = new BaseballGame(home, away);
         game.setDataSource(dataSource);
         return game;
-    }
-
-    @Bean
-    public Team redSox() {
-        return new RedSox();
-    }
-
-    @Bean
-    public Team cubs() {
-        return new Cubs();
     }
 
 }
