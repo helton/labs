@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="redSox" class="me.helton.spring.springappdemo.entities.RedSox" />
+    <bean id="cubs" class="me.helton.spring.springappdemo.entities.Cubs" />
+    <bean id="game" class="me.helton.spring.springappdemo.entities.BaseballGame">
+        <property name="homeTeam" ref="redSox" />
+        <property name="awayTeam" ref="cubs" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" />
+
+</beans>

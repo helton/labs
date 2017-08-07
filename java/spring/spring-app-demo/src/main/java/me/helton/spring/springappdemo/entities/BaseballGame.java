@@ -1,6 +1,7 @@
 package me.helton.spring.springappdemo.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -8,6 +9,7 @@ import javax.sql.DataSource;
 
 @Data
 @RequiredArgsConstructor
+@NoArgsConstructor
 public class BaseballGame implements Game {
     @NonNull
     private Team homeTeam;

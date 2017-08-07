@@ -4,11 +4,11 @@ import me.helton.spring.springappdemo.entities.BaseballGame;
 import me.helton.spring.springappdemo.entities.Game;
 import me.helton.spring.springappdemo.entities.Team;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
@@ -17,15 +17,15 @@ public class AppConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Resource
-    private Team redSox;
+    @Autowired @Qualifier("redSox")
+    private Team home;
 
-    @Resource
-    private Team cubs;
+    @Autowired @Qualifier("cubs")
+    private Team away;
 
     @Bean
     public Game game() {
-        Game game = new BaseballGame(redSox, cubs);
+        Game game = new BaseballGame(home, away);
         game.setDataSource(dataSource);
         return game;
     }
