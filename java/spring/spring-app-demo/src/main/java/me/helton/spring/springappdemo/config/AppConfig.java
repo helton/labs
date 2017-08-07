@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import javax.sql.DataSource;
+import java.text.NumberFormat;
 import java.util.List;
 
 @Configuration
@@ -21,6 +22,11 @@ public class AppConfig {
 
     @Autowired
     private List<Team> teams;
+
+    @Bean
+    public NumberFormat nf() {
+        return NumberFormat.getCurrencyInstance();
+    }
 
     @Bean
     public Game game() {
