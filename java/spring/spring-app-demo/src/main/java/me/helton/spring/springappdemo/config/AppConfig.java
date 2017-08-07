@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 @Configuration
 @ComponentScan(basePackages = "me.helton.spring.springappdemo")
@@ -17,15 +18,12 @@ public class AppConfig {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired @Qualifier("redSox")
-    private Team home;
-
-    @Autowired @Qualifier("cubs")
-    private Team away;
+    @Autowired
+    private List<Team> teams;
 
     @Bean
     public Game game() {
-        Game game = new BaseballGame(home, away);
+        Game game = new BaseballGame(teams.get(0), teams.get(1));
         game.setDataSource(dataSource);
         return game;
     }
