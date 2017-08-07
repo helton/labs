@@ -12,7 +12,7 @@ import java.text.NumberFormat;
 public class RunWithSpring {
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
 //        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
@@ -24,6 +24,8 @@ public class RunWithSpring {
 
         Game game1 = context.getBean("game", Game.class);
         System.out.println(game1);
+
+        context.close();
 
 //        Game game2 = context.getBean("game", Game.class);
 //        game2.setAwayTeam(royals);

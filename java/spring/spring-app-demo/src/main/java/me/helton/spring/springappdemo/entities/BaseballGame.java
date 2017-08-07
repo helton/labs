@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
 @Data
@@ -17,10 +19,12 @@ public class BaseballGame implements Game {
     private Team awayTeam;
     private DataSource dataSource;
 
+    @PostConstruct
     public void startGame() {
         System.out.println("Playing Nation Anthem");
     }
 
+    @PreDestroy
     public void endGame() {
         System.out.println("Sending highlights to MBL");
     }
